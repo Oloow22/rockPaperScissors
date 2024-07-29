@@ -18,7 +18,7 @@ function getComputerChoice(){
 
 function getHumanChoice(){
     let mes = "Pick an option";
-    let def = "Rock"
+    let def = "Rock";
     let input = prompt(mes,def);
     input.toLowerCase;
     input.charAt(0).toUpperCase;
@@ -27,9 +27,9 @@ function getHumanChoice(){
 
 
 function playRound(humanChoice,computerChoice){
-    let final = null;
+    let final = "";
 
-    if (humanChoice = computerChoice){
+    if (humanChoice == computerChoice){
         final = console.log("Same");
     } else if(humanChoice == "Paper" && computerChoice == "Rock"){
         final = console.log("Human wins with paper");
@@ -51,21 +51,23 @@ function playRound(humanChoice,computerChoice){
         computerScore +=1;
     }
     
-    return final;
+    return humanScore,computerScore,final;
     
     
 }
 
 
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
+
 
 
 function playGame(){
     roundCount = 1;
     while (roundCount <= 5){
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
         playRound(humanSelection,computerSelection);
+        roundCount +=1;
     }
     console.log(humanScore);
     console.log(computerScore);
