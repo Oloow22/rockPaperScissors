@@ -53,10 +53,7 @@ function playRound(humanChoice,computerChoice){
     
     return humanScore,computerScore,final;
     
-    
 }
-
-
 
 
 
