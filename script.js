@@ -30,54 +30,71 @@ function playRound(humanChoice, computerChoice) {
     let final = "";
     const results = document.querySelector(".results");
 
+    if (!(humanScore == 5 || computerScore == 5)) {
+        if (humanChoice == computerChoice) {
+            final = console.log("Same");
+            const para = document.createElement("p");
+            para.textContent = "Same |";
+            results.appendChild(para);
+        } else if (humanChoice == "Paper" && computerChoice == "Rock") {
+            final = console.log("Human wins with paper");
+            humanScore += 1;
+            let para = document.createElement("p");
+            para.textContent = "Human wins with paper |";
+            results.appendChild(para);
+        } else if (computerChoice == "Paper" && humanChoice == "Rock") {
+            final = console.log("Computer wins with paper");
+            computerScore += 1;
+            let para = document.createElement("p");
+            para.textContent = "Computer wins with paper |";
+            results.appendChild(para);
+        } else if (humanChoice == "Scissors" && computerChoice == "Paper") {
+            final = console.log("Human wins with scissors");
+            humanScore += 1;
+            let para = document.createElement("p");
+            para.textContent = "Human wins with scissors |";
+            results.appendChild(para);
+        } else if (computerChoice == "Scissors" && humanChoice == "Paper") {
+            final = console.log("Computer wins with scissors");
+            computerScore += 1;
+            let para = document.createElement("p");
+            para.textContent = "Computer wins with scissors |";
+            results.appendChild(para);
+        } else if (humanChoice == "Rock" && computerChoice == "Scissors") {
+            final = console.log("Human wins with rock");
+            humanScore += 1;
+            let para = document.createElement("p");
+            para.textContent = "Human wins with rock |";
+            results.appendChild(para);
+        } else if (computerChoice == "Rock" && humanChoice == "Scissors") {
+            final = console.log("Computer wins with rock ");
+            computerScore += 1;
+            let para = document.createElement("p");
+            para.textContent = "Computer wins with rock |";
+            results.appendChild(para);
+        }
 
-    if (humanChoice == computerChoice) {
-        final = console.log("Same");
-        const para = document.createElement("p");
-        para.textContent = "Same |";
-        results.appendChild(para);
-    } else if (humanChoice == "Paper" && computerChoice == "Rock") {
-        final = console.log("Human wins with paper");
-        humanScore += 1;
-        let para = document.createElement("p");
-        para.textContent = "Human wins with paper |";
-        results.appendChild(para);
-    } else if (computerChoice == "Paper" && humanChoice == "Rock") {
-        final = console.log("Computer wins with paper");
-        computerScore += 1;
-        let para = document.createElement("p");
-        para.textContent = "Computer wins with paper |";
-        results.appendChild(para);
-    } else if (humanChoice == "Scissors" && computerChoice == "Paper") {
-        final = console.log("Human wins with scissors");
-        humanScore += 1;
-        let para = document.createElement("p");
-        para.textContent = "Human wins with scissors |";
-        results.appendChild(para);
-    } else if (computerChoice == "Scissors" && humanChoice == "Paper") {
-        final = console.log("Computer wins with scissors");
-        computerScore += 1;
-        let para = document.createElement("p");
-        para.textContent = "Computer wins with scissors |";
-        results.appendChild(para);
-    } else if (humanChoice == "Rock" && computerChoice == "Scissors") {
-        final = console.log("Human wins with rock");
-        humanScore += 1;
-        let para = document.createElement("p");
-        para.textContent = "Human wins with rock |";
-        results.appendChild(para);
-    } else if (computerChoice == "Rock" && humanChoice == "Scissors") {
-        final = console.log("Computer wins with rock ");
-        computerScore += 1;
-        let para = document.createElement("p");
-        para.textContent = "Computer wins with rock |";
-        results.appendChild(para);
+    } else if (computerScore > humanScore) {
+        const btns = document.querySelector(".btns");
+        spara = document.createElement("p");
+        spara.style.color = "brown";
+        spara.style.fontfamily = 'Courier New';
+        spara.textContent = `Computer wins with ${computerScore}, refresh the page to restart`;
+        btns.appendChild(spara);
+    } else if (humanScore > computerScore) {
+        const btns = document.querySelector(".btns");
+        spara = document.createElement("p");
+        spara.style.color = "brown";
+        spara.style.fontfamily = 'Courier New';
+        spara.textContent = `Human wins with ${humanScore}, refresh the page to restart`;
+        btns.appendChild(spara);
+
+        console.log(final);
+
+        return humanScore, computerScore, final;
+
+
     }
-    console.log(final);
-
-    return humanScore, computerScore, final;
-
-
 }
 
 const rock = document.querySelector("#rock");
